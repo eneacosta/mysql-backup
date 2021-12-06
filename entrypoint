@@ -137,7 +137,7 @@ if [[ -n "$DB_RESTORE_TARGET" ]]; then
     rm -rf $workdir
     mkdir -p $workdir
     $UNCOMPRESS < $TMPRESTORE | tar -C $workdir -xvf -
-    cat $workdir/* | mysql -h $DB_SERVER -P $DB_PORT $DBUSER $DBPASS
+    cat $workdir/* | mysql -h $DB_SERVER -P $DB_PORT $DBUSER $DBPASS $RESTORE_DB_NAME
     rm -rf $workdir
     /bin/rm -f $TMPRESTORE
   else
